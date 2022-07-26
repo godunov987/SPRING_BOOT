@@ -1,6 +1,5 @@
 package web.dao;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import web.model.User;
@@ -24,7 +23,7 @@ public class UserDaoImpl implements UserDao {
 
     @Transactional
     @Override
-    public User updateUser(User user) {
+    public User updateUserById(int id , User user) {
         em.merge(user);
         return user;
     }
@@ -34,7 +33,6 @@ public class UserDaoImpl implements UserDao {
     public List<User> getAllUsers() {
         return em.createQuery("select u from User u", User.class).getResultList();
     }
-
 
     @Transactional(readOnly = true)
     @Override

@@ -24,8 +24,8 @@ public class UserServiseImpl implements UserServise {
 
     @Override
     @Transactional
-    public void updateUser(User user) {
-        this.userDao.updateUser(user);
+    public void updateUserById(int id, User user) {
+        userDao.updateUserById(id, user);
     }
 
     @Override
